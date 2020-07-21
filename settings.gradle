@@ -1,1 +1,1 @@
-include ':app', ':day06_sensor'
+include ':app', ':day06_sensor', ':day06_text_book', ':day06_myview1', ':day08_text_book', ':day06_myview2', ':day09_umeng', ':day09_text_book', ':day10_jiguang', ':zhouce'

@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
     private void userOrien() {
         Sensor defaultSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION);
         sensorManager.registerListener(new Listener(), defaultSensor, SensorManager.SENSOR_DELAY_NORMAL);
+        Sensor sensorLight = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
+        sensorManager.registerListener(new Listenertwo(), sensorLight, SensorManager.SENSOR_DELAY_NORMAL);
     }
     public class Listener implements SensorEventListener{
 
@@ -50,6 +52,18 @@ public class MainActivity extends AppCompatActivity {
             String vendor = sensor.getVendor();
             int version = sensor.getVersion();
             Log.e("tag", "onCreate: name:"+name+","+vendor +","+version);
+        }
+    }
+    public class Listenertwo implements SensorEventListener{
+
+        @Override
+        public void onSensorChanged(SensorEvent event) {
+            float value = event.values[0];
+            Log.e("tag", "光线强度:"+value);
+        }
+        @Override
+        public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
         }
     }
 }
